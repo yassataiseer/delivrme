@@ -17,7 +17,6 @@ app = Flask(__name__)
 #db.commit()
 @app.route("/")
 def index():
-
     return "hello"
 
 if __name__ == '__main__':
