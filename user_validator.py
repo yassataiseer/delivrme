@@ -21,6 +21,11 @@ class user:
 
     
     def check_user(user,password):
-        pass
+        mycursor.execute('SELECT * FROM user')
+        data = mycursor.fetchall()
+        for rows in data:
+            if rows[0]==user and rows[1]==password:
+                return True
+        return False
 
-user.add_user("Yassa Taiseer","yassa123")
+print(user.check_user("YassaTaiseer","yassa123"))
