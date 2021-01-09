@@ -15,9 +15,14 @@ mycursor = db.cursor()
 class user:
 
     def add_user(user,password):
+        mycursor.execute('SELECT * FROM user')
+        data = mycursor.fetchall()
+        for rows in data:
+            if rows[0]==user and rows[1]==password:
+                return False
         mycursor.execute("INSERT INTO user (Username,Password) VALUES (%s,%s)",(user,password))
         db.commit()
-        print("Succesfully added")
+        return True
 
     
     def check_user(user,password):
@@ -28,4 +33,4 @@ class user:
                 return True
         return False
 
-print(user.check_user("YassaTaiseer","yassa123"))
+print(user.add_user("Eshal Taiseer","eshal123"))
