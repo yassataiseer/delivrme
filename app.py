@@ -12,9 +12,6 @@ db =mysql.connector.connect(
 
 app = Flask(__name__)
 
-#mycursor = db.cursor()
-#mycursor.execute("CREATE TABLE User(Username VARCHAR(50), Password VARCHAR (10), personID int PRIMARY KEY AUTO_INCREMENT)")
-#db.commit()
 @app.route("/")
 def index():
     return "hello"
