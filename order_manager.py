@@ -15,7 +15,13 @@ mycursor = db.cursor()
 class order:
     def delete_order():
         pass
-    def add_order():
-        pass
+    def add_order(Username,Address,Item,Price,User_Info):
+        mycursor.execute('SELECT * FROM deliveries')
+        data = mycursor.fetchall()
+        mycursor.execute("INSERT INTO deliveries (Username,Address,Item,Price,User_Info) VALUES (%s,%s,%s,%s,%s)",(Username,Address,Item,Price,User_Info))
+        db.commit()
+        return True
     def edit_order():
         pass
+
+print(order.add_order("Yassa Taiseer","1328 Whitney Terrace","Box",13,"I need this box delivered ASAP"))
