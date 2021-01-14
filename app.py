@@ -11,6 +11,12 @@ db =mysql.connector.connect(
 )
 
 app = Flask(__name__)
+class School:
+    def __init__(self, key, name, lat, lng):
+        self.key  = key
+        self.name = name
+        self.lat  = lat
+        self.lng  = lng
 
 @app.route("/")
 def index():
