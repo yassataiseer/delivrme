@@ -1,5 +1,6 @@
 import mysql.connector
 import os
+import requests, json
 
 from decouple import config
 
@@ -26,4 +27,4 @@ class order:
     def edit_order(Username,Address,Item,Price,User_Info):
         pass
 
-#print(order.delete_order("Yassa Taiseer","1328 Whitney Terrace","Box",13,"I need this box delivered ASAP"))
+#print(order.add_order("Yassa Taiseer","1328 Whitney Terrace","Box",13,"I need this box delivered ASAP"))
