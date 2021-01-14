@@ -11,10 +11,14 @@
     type="text/javascript"></script>
     <script type="text/javascript">
     function initMap() {
-        new google.maps.Map(document.getElementById('map'), {
+        const map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: {{data[2]}}, lng: {{data[3]}} },
             zoom: 16
           });
+          new google.maps.Marker({
+            position: {lat: {{data[2]}}, lng: {{data[3]}} },
+            map,
+            title: "Hello World!",});
     }
     </script>
 </head>
