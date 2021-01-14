@@ -21,7 +21,8 @@ class School:
 @app.route("/")
 def index():
     data = ['hv','Happy Valley Elementary',37.9045286,-122.1445772]
-    return render_template("map.html", data =data)
+    api_key= config('API_KEY')
+    return render_template("map.html", data =data,api_key=api_key)
 
 if __name__ == '__main__':
     app.run(port=50000, debug=True) 
