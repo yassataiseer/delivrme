@@ -26,5 +26,12 @@ class order:
         return True
     def edit_order(Username,Address,Item,Price,User_Info):
         pass
+    def get_order():
+        mycursor.execute('SELECT * FROM deliveries')
+        a = mycursor.fetchall()
+        return list(a)
+
+
+print(order.get_order())
 
 #print(order.add_order("Yassa Taiseer","1328 Whitney Terrace","Box",13,"I need this box delivered ASAP"))

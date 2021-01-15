@@ -20,7 +20,7 @@ class School:
 
 @app.route("/")
 def index():
-    data1 = [['hv','Happy Valley Elementary',37.9045286,-122.1445772],['ml','1328 Whitney',43.4868212, -79.8437131]]
+    data1 = [['hv','Happy Valley Elementary',37.9045286,-122.1445772],['ml','1328 Whitney',43.4868212, -79.8437131],['cj',"China",41.41483,82.10606]]
     api_key= config('API_KEY')
     return render_template("map.html", data1=data1,api_key=api_key)
 

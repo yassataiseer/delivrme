@@ -30,25 +30,33 @@
     {% for data in data1%}
 
     <script type="text/javascript">
-    for (const creds of hello){
-        var credentailsstuff= creds.split(",")
-        console.log(credentailsstuff)
+
     
     function initMap() {
-        var latitude = parseFloat(credentailsstuff[2]);
-        var longitude = parseFloat(credentailsstuff[3]);
-        console.log(longitude);
+
         const map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: {{data[2]}}, lng: {{data[3]}} },
             zoom: 16
           });
           var marker,i;
-          
-          new google.maps.Marker({
+          for (const creds of hello){
+        var credentailsstuff= creds.split(",")
+        console.log(credentailsstuff)
+        var latitude = parseFloat(credentailsstuff[2]);
+        var longitude = parseFloat(credentailsstuff[3]);
+        var address = credentailsstuff[1];
+        console.log(longitude);
+        const infowindow = new google.maps.InfoWindow({
+        content: address,
+  });
+        const marker =  new google.maps.Marker({
             
             position: {lat: latitude, lng: longitude },
             map,
             title: "Hello World!",});
+    marker.addListener("click", () => {
+    infowindow.open(map, marker);
+  });
     }}
     </script>
 </head>
