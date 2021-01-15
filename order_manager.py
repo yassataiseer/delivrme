@@ -19,8 +19,6 @@ class order:
         db.commit()
         return True
     def add_order(Username,Address,Item,Price,User_Info):
-        lat = ""
-        lon = ""
         url = 'http://photon.komoot.de/api/?q='
         mycursor.execute('SELECT * FROM deliveries')
         data = mycursor.fetchall()
@@ -45,5 +43,5 @@ class order:
 
 
 #print(order.get_order())
-
-#print(order.add_order("Yassa Taiseer","1328 Whitney Terrace","Box",13,"I need this box delivered ASAP"))
+#print(order.add_order("Yassa Taiseer","1328 Whitney Terrace","Box",15,"I need this box delivered ASAP"))
+#print(order.add_order("Eshal Taiseer","452 Savoline Blvd","Laptop",200,"I need this laptop delivered ASAP"))

@@ -9,10 +9,7 @@
 
     <script type="text/javascript">
 
-    console.log('{{data[2]}}')
     hello.push('{{data}}')
-    console.log("HELLO");
-    console.log(hello);
     </script>
     {%endfor%}
     
@@ -41,10 +38,12 @@
           var marker,i;
           for (const creds of hello){
         var credentailsstuff= creds.split(",")
-        console.log(credentailsstuff)
-        var latitude = parseFloat(credentailsstuff[2]);
-        var longitude = parseFloat(credentailsstuff[3]);
+        console.log("LINE");
+        console.log(credentailsstuff[2])
+        var latitude = parseInt(credentailsstuff[2]);
+        var longitude = parseInt(credentailsstuff[3]);
         var address = credentailsstuff[1];
+        console.log(latitude);
         console.log(longitude);
         const infowindow = new google.maps.InfoWindow({
         content: address,
