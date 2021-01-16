@@ -27,7 +27,6 @@
     {% for data in data1%}
 
     <script type="text/javascript">
-
     
     function initMap() {
 
@@ -40,9 +39,14 @@
         var credentailsstuff= creds.split(",")
         console.log("LINE");
         console.log(credentailsstuff[2])
-        var latitude = parseInt(credentailsstuff[2]);
-        var longitude = parseInt(credentailsstuff[3]);
-        var address = credentailsstuff[1];
+        var latitude = parseFloat(credentailsstuff[2]);
+        var longitude = parseFloat(credentailsstuff[3]);
+        var info = credentailsstuff[6];
+        var item = credentailsstuff[4];
+        var price = credentailsstuff[5]
+        var title = credentailsstuff[1];
+        var address = "<h3>"+title+"</h3>" + "<br>"+ "<p> The item is a:"+item+"</p>"+ "<p> I am willing to pay"+price+"</p>" +info;
+        const design_for_infobox= "<body></body>";
         console.log(latitude);
         console.log(longitude);
         const infowindow = new google.maps.InfoWindow({

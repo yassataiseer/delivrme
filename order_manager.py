@@ -43,5 +43,5 @@ class order:
 
 
 #print(order.get_order())
-#print(order.add_order("Yassa Taiseer","1328 Whitney Terrace","Box",15,"I need this box delivered ASAP"))
-#print(order.add_order("Eshal Taiseer","452 Savoline Blvd","Laptop",200,"I need this laptop delivered ASAP"))
+#print(order.add_order("Yassa Taiseer","1328 Whitney Terrace Milton","Box",15,"I need this box delivered ASAP"))
+#print(order.add_order("Eshal Taiseer","452 Savoline Blvd Milton","Laptop",200,"I need this laptop delivered ASAP"))
