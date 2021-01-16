@@ -45,7 +45,9 @@
         var item = credentailsstuff[4];
         var price = credentailsstuff[5]
         var title = credentailsstuff[1];
-        var address = "<h3>"+title+"</h3>" + "<br>"+ "<p> The item is a:"+item+"</p>"+ "<p> I am willing to pay"+price+"</p>" +info;
+        var name = credentailsstuff[0];
+        name = name.replace('[', "")
+        var address = "<h3>"+title+"</h3>" + "<br>"+ "<p> Hi my name is  "+ name+"</p>"+ "<p> The item is a:"+item+"</p>"+ "<p> I am willing to pay"+price+"</p>" +info;
         const design_for_infobox= "<body></body>";
         console.log(latitude);
         console.log(longitude);
