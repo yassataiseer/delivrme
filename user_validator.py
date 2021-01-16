@@ -22,12 +22,12 @@ class user:
         return True
 
     def check_user(user,password):
-        mycursor.execute('SELECT * FROM user')
+        mycursor.execute("SELECT Username FROM user WHERE Username = (%s) AND Password = (%s) ",(user,password))
         data = mycursor.fetchall()
-        for rows in data:
-            if rows[0]==user and rows[1]==password:
-                return True
-        return False
+        if len(data)==0:
+            return False
+        else:
+            return True
         
     def check_if_user_exists(user):
         mycursor.execute("SELECT Username FROM user WHERE Username = (%s) ",(user,))
@@ -36,7 +36,6 @@ class user:
             return False
         else:
             return True
-    def add_user1(user,password):
-        pass
-print(user.add_user("Eshal Taiseer","eshal123"))
+
+#print(user.check_user("Eshal Taiseer","eshal123"))
 #print(user.check_if_user_exists("Yassa Taiseer"))
