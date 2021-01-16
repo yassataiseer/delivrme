@@ -13,13 +13,11 @@ mycursor = db.cursor()
 
 
 class user:
-    def add_user(user,password):
-        mycursor.execute('SELECT * FROM user')
-        data = mycursor.fetchall()
-        for rows in data:
-            if rows[0]==user and rows[1]==password:
-                return False
-        mycursor.execute("INSERT INTO user (Username,Password) VALUES (%s,%s)",(user,password))
+    def add_user(username,password):
+        boolean = user.check_if_user_exists(username)
+        if boolean == True:
+            return False
+        mycursor.execute("INSERT INTO user (Username,Password) VALUES (%s,%s)",(username,password))
         db.commit()
         return True
 
@@ -38,6 +36,7 @@ class user:
             return False
         else:
             return True
-
-#print(user.add_user("Eshal Taiseer","eshal123"))
+    def add_user1(user,password):
+        pass
+print(user.add_user("Eshal Taiseer","eshal123"))
 #print(user.check_if_user_exists("Yassa Taiseer"))
