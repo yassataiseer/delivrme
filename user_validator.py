@@ -32,5 +32,13 @@ class user:
             if rows[0]==user and rows[1]==password:
                 return True
         return False
+    def check_if_user_exists(user):
+        mycursor.execute("SELECT Username FROM user WHERE Username = (%s) ",(user,))
+        data = mycursor.fetchall()
+        if len(data)==0:
+            return False
+        else:
+            return True
 
 #print(user.add_user("Eshal Taiseer","eshal123"))
+#print(user.check_if_user_exists("Yassa Taiseer"))
