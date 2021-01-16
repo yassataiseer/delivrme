@@ -41,8 +41,12 @@ class order:
             data.append(i)
         return data
     
+    def get_order_specific_person(username):
+        mycursor.execute("SELECT * FROM deliveries WHERE Username = %s",(username,))
+        data = mycursor.fetchall()
+        return data
 
 
-#print(order.get_order())
+#print(order.get_order_specific_person('Eshal Taiseer'))
 #print(order.add_order("Yassa Taiseer","1328 Whitney Terrace Milton","Box",15,"I need this box delivered ASAP"))
-#print(order.add_order("Eshal Taiseer","452 Savoline Blvd Milton","Laptop",200,"I need this laptop delivered ASAP"))
+#print(order.add_order("Eshal Taiseer","725 Bronte St S Milton","toy",2,"I need this toy delivered ASAP"))

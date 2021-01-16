@@ -13,7 +13,6 @@ mycursor = db.cursor()
 
 
 class user:
-
     def add_user(user,password):
         mycursor.execute('SELECT * FROM user')
         data = mycursor.fetchall()
@@ -24,7 +23,6 @@ class user:
         db.commit()
         return True
 
-    
     def check_user(user,password):
         mycursor.execute('SELECT * FROM user')
         data = mycursor.fetchall()
@@ -32,6 +30,7 @@ class user:
             if rows[0]==user and rows[1]==password:
                 return True
         return False
+        
     def check_if_user_exists(user):
         mycursor.execute("SELECT Username FROM user WHERE Username = (%s) ",(user,))
         data = mycursor.fetchall()
