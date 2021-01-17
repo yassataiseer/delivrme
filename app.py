@@ -29,7 +29,7 @@ def signup():
 
 
 @app.route("/login-link")
-def signup():
+def login():
     return render_template("login.html")
 
 
