@@ -44,7 +44,6 @@ def validate_user():
         data1 = order.get_order()
         api_key= config('API_KEY')
         session['Username'] = username
-        print("SESSION IS",session['Username'])
         return render_template("map.html",data1=data1,api_key=api_key)
     else:
         return "invalid password or you need to sign up"
@@ -59,7 +58,6 @@ def create_user():
         data1 = order.get_order()
         api_key= config('API_KEY')
         session['Username'] = username
-        print("SESSION IS",session['Username'])
         return render_template("map.html",data1=data1,api_key=api_key)
     else:
         return "Unfortunately a user with this name already exists please pick a new one....."
@@ -74,8 +72,8 @@ def map_view():
 @app.route("/view_orders")
 def order_view():
     name = session['Username']
-    
-    return render_template("orders.html", name = name)
+    user_order_info = order.get_order_specific_person(name)
+    return render_template("orders.html", data = user_order_info)
 
 if __name__ == '__main__':
     app.run(port=50000, debug=True) 
