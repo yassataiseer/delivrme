@@ -21,6 +21,10 @@ class School:
 
 @app.route("/")
 def index():
+    return render_template("login.html")
+
+@app.route("/map")
+def map_view():
     data1 = order.get_order()
     api_key= config('API_KEY')
     return render_template("map.html", data1=data1,api_key=api_key)
