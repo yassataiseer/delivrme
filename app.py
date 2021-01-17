@@ -23,6 +23,16 @@ class School:
 def index():
     return render_template("login.html")
 
+@app.route("/signup-link")
+def signup():
+    return render_template("sign_up.html")
+
+
+@app.route("/login-link")
+def signup():
+    return render_template("login.html")
+
+
 @app.route("/map")
 def map_view():
     data1 = order.get_order()
