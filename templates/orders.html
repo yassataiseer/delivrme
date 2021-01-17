@@ -46,12 +46,61 @@ body {
   text-align: center;
   background-color: #f1f1f1;
 }
+
+table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        ul {
+            list-style-type: none;
+            margin: 5;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            position: unfixed;
+            top: 0;
+            width: 100%;
+          }
+        
+          li {
+            float: left;
+          }
+          
+          li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font: arial;
+          }
+          
+          li a:hover:not(.active) {
+            background-color: #111;
+          }
+        
 </style>
+<ul>
+    <li><a href="/map" >View Map </a></li>
+    <li><a href="/view_orders">View Your Orders</a></li>
+    <li><a href="#">Make An Order</a></li>
+</ul>
 </head>
+<form  name="delete_order" action="/delete_order" method="POST" class="modal-content">
+
 <body>
 
-<h2>Responsive Column Cards</h2>
-<p>Resize the browser window to see the effect.</p>
 {%for stuff in data%}
 <div class="row">
   <div class="column">
@@ -60,15 +109,18 @@ body {
       <h3>Address is {{stuff[1]}}</h3>
       <h3>The Item(s) is/are {{stuff[4]}}</h3>
       <h3>The Price is ${{stuff[5]}}</h3>
-      <h3>More info here: {{stuff[6]}}</h3>
-      <button name ="edit" value="{{stuff[0]}}"  type="submit" class="signupbtn"> Delete Order</button>
+      <h3>More info here: {{stuff[6]}}</span></h3>
+
+      <button name ="edit" value="{{stuff}}"  type="submit" class="signupbtn"> Delete Order</button>
+      
+
     </div>
   </div>
   </div>
   <br>
 {%endfor%}
 </div>
-
+</form>
 </body>
 </html>
 </html>

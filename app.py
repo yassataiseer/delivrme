@@ -66,11 +66,37 @@ def create_user():
 @app.route("/map")
 def map_view():
     data1 = order.get_order()
+    print(data1)
     api_key= config('API_KEY')
     return render_template("map.html", data1=data1,api_key=api_key)
 
 @app.route("/view_orders")
 def order_view():
+    name = session['Username']
+    user_order_info = order.get_order_specific_person(name)
+    return render_template("orders.html", data = user_order_info)
+
+@app.route("/delete_order", methods=["POST"])
+def delete_order():
+    final_data = []
+    delete_data = request.form['edit']
+    delete_data = delete_data.replace("(","")
+    delete_data = delete_data.replace(")","")
+    delete_data = delete_data.replace("'","")
+    print(delete_data)
+    delete_data = delete_data.split(',')
+    delete_data = list(delete_data)
+    first_half = delete_data[0:2]
+    secound_half = delete_data[4:7]
+    for things in first_half:
+        final_data.append(str(things))
+    for j in secound_half:
+        final_data.append(str(j))
+    #final_data.append(delete_data[4:7])
+    print(final_data)
+
+    a = order.delete_order(final_data[0].strip(),final_data[1].strip(),final_data[2].strip(),final_data[3].strip(),final_data[4].strip())
+    print(final_data[0],final_data[2],int(final_data[3]))
     name = session['Username']
     user_order_info = order.get_order_specific_person(name)
     return render_template("orders.html", data = user_order_info)
