@@ -45,6 +45,21 @@ def validate_user():
         return render_template("map.html",data1=data1,api_key=api_key)
     else:
         return "invalid password or you need to sign up"
+@app.route("/newuser-add",  methods = ["POST","GET"])
+def create_user():
+    username = request.form['emailer']
+    password = request.form['pswrd']
+
+    does_user_exist = user.check_if_user_exists(username)
+    print(does_user_exist)
+    if does_user_exist == False:
+        user.add_user(username,password)
+        data1 = order.get_order()
+        api_key= config('API_KEY')
+        return render_template("map.html",data1=data1,api_key=api_key)
+    else:
+        return "Unfortunately a user with this name already exists please pick a new one....."
+        
 
 @app.route("/map")
 def map_view():
