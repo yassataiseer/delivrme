@@ -3,7 +3,9 @@ from flask import Flask, render_template,request,session
 import os
 from decouple import config
 import json
+import requests
 from order_manager import order
+from user_validator import user
 db =mysql.connector.connect(
     host = config('HOST'),
     user = config('USER'),
@@ -32,6 +34,17 @@ def signup():
 def login():
     return render_template("login.html")
 
+@app.route("/user-validate", methods = ["POST","GET"])
+def validate_user():
+    username = request.form['emailer']
+    password = request.form['pswrd']
+    decision = user.check_user(username,password)
+    if decision ==True:
+        data1 = order.get_order()
+        api_key= config('API_KEY')
+        return render_template("map.html",data1=data1,api_key=api_key)
+    else:
+        return "invalid password or you need to sign up"
 
 @app.route("/map")
 def map_view():
