@@ -40,7 +40,6 @@ class order:
             i = list(i)
             data.append(i)
         return data
-    
     def get_order_specific_person(username):
         mycursor.execute("SELECT * FROM deliveries WHERE Username = %s",(username,))
         data = mycursor.fetchall()
