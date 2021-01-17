@@ -20,6 +20,7 @@ class School:
         self.name = name
         self.lat  = lat
         self.lng  = lng
+app.config['SECRET_KEY'] = 'abc'
 
 @app.route("/")
 def index():
@@ -42,6 +43,8 @@ def validate_user():
     if decision ==True:
         data1 = order.get_order()
         api_key= config('API_KEY')
+        session['Username'] = username
+        print("SESSION IS",session['Username'])
         return render_template("map.html",data1=data1,api_key=api_key)
     else:
         return "invalid password or you need to sign up"
@@ -49,13 +52,14 @@ def validate_user():
 def create_user():
     username = request.form['emailer']
     password = request.form['pswrd']
-
     does_user_exist = user.check_if_user_exists(username)
     print(does_user_exist)
     if does_user_exist == False:
         user.add_user(username,password)
         data1 = order.get_order()
         api_key= config('API_KEY')
+        session['Username'] = username
+        print("SESSION IS",session['Username'])
         return render_template("map.html",data1=data1,api_key=api_key)
     else:
         return "Unfortunately a user with this name already exists please pick a new one....."
@@ -66,6 +70,12 @@ def map_view():
     data1 = order.get_order()
     api_key= config('API_KEY')
     return render_template("map.html", data1=data1,api_key=api_key)
+
+@app.route("/view_orders")
+def order_view():
+    name = session['Username']
+    
+    return render_template("orders.html", name = name)
 
 if __name__ == '__main__':
     app.run(port=50000, debug=True) 
