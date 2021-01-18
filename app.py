@@ -50,9 +50,10 @@ def validate_user():
 @app.route("/newuser-add",  methods = ["POST","GET"])
 def create_user():
     username = request.form['emailer']
+    print(username)
     password = request.form['pswrd']
     does_user_exist = user.check_if_user_exists(username)
-    print(does_user_exist)
+    #print(does_user_exist)
     if does_user_exist == False:
         user.add_user(username,password)
         data1 = order.get_order()
