@@ -87,17 +87,18 @@
         var credentailsstuff= creds.split(",")
         console.log("LINE");
         console.log(credentailsstuff[2])
-        var latitude = parseFloat(credentailsstuff[3]);
-        var longitude = parseFloat(credentailsstuff[4]);
-        var info = credentailsstuff[7];
-        var item = credentailsstuff[5];
-        var price = credentailsstuff[6]
+        var latitude = parseFloat(credentailsstuff[2]);
+        var longitude = parseFloat(credentailsstuff[3]);
+        var info = credentailsstuff[6];
+        var item = credentailsstuff[4];
+        var price = credentailsstuff[5]
         var title = credentailsstuff[1];
         var name = credentailsstuff[0];
         name = name.replace('[', "")
-        var address = "<h3>"+title+"</h3>" + "<br>"+ "<p> Hi my name is  "+ name+"</p>"+ "<p> The item is a:"+item+"</p>"+ "<p> I am willing to pay $"+price+"</p>" +info;
+        var address = "<h3>"+title+"</h3>" + "<br>"+ "<p> Hi my name is  "+ name+"</p>"+ "<p> The item is a:"+item+"</p>"+ "<p> I am willing to pay $"+price+"</p>" +"<p>More Info:"+info+"</p>";
         const design_for_infobox= "<body></body>";
         console.log(latitude);
+        console.log(longitude);
         console.log(longitude);
         const infowindow = new google.maps.InfoWindow({
         content: address,

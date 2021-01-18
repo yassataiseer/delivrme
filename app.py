@@ -106,8 +106,16 @@ def delete_order():
 def deliveryform():
     name = session['Username']
     return render_template("deliveryform.html" , name = name)
-@app.route("/deliverydata")
+
+    
+@app.route("/deliverydata", methods = ['POST'])
 def deliverydata():
+    name = session['Username']
+    address = request.form['Address']
+    Item = request.form['Item']
+    Price = request.form['price']
+    info = request.form['info']
+    order.add_order(name,address,Item,Price,info)
     user_order_info = order.get_order_specific_person(name)
     return render_template("orders.html", data = user_order_info)
 if __name__ == '__main__':
