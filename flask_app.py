@@ -7,7 +7,7 @@ import requests
 from order_manager import order
 from user_validator import user
 db =mysql.connector.connect(
-    host = config('HOST'),
+    host = config('HOST'),      
     user = config('USER'),
     passwd = config('PASSWORD'),
     database = config('DATABASE')
