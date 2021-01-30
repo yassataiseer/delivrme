@@ -119,4 +119,4 @@ def deliverydata():
     user_order_info = order.get_order_specific_person(name)
     return render_template("orders.html", data = user_order_info)
 if __name__ == '__main__':
-    app.run(port=50000, debug=True) 
+    app.run(host= '10.0.0.36',port=800, debug=True) 

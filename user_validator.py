@@ -38,4 +38,4 @@ class user:
             return True
 
 #print(user.check_user("Eshal Taiseer","eshal123"))
-print(user.check_if_user_exists("Taiseer Taiseer"))
+#print(user.check_if_user_exists("Taiseer Taiseer"))
