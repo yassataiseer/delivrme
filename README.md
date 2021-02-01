@@ -1,7 +1,6 @@
 # DlvrMe
 
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 DlvrMe is a project made by Yassa Taiseer that is used to make delivering packages with a city easier
   - Users signup/login
