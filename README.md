@@ -73,3 +73,8 @@ The user's table will look like this:
 | Price | FLOAT |
 | User_info | VARCHAR |
 | ID_key | AUTO_INCREMENT_KEY |
+
+
+
+#### Option 2(Easier route):
+You can also run ```database_setup.sql``` in Mysql this is much easier but may now work on MacOs/Linux
