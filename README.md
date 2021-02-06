@@ -6,6 +6,7 @@ DlvrMe is a project made by Yassa Taiseer that is used to make delivering packag
   - Users signup/login
   - They can then post an order worldwide and another user can drop it off somewhere else
   - Basically uber eats but anyone can deliver and make money
+  - To see a demo of this project just download ```video.mp4```
 
 ### Tech Stack:
 
