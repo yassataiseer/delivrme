@@ -1,6 +1,8 @@
 # DlvrMe
 
-
+## Note This project is now dysfunct
+## View new API here https://github.com/yassataiseer/DlvrMe-API
+## View Flutter frontend here https://github.com/yassataiseer/DlvrMe-Mobile
 
 DlvrMe is a project made by Yassa Taiseer that is used to make delivering packages with a city easier
   - Users signup/login
